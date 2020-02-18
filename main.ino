@@ -8,7 +8,7 @@ byte address[][6] = {"1Node", "2Node", "3Node", "4Node", "5Node", "6Node"};
 
 int incoming_identification_request;
 int request_for_identification = 1111;
-int identification_telemetry = 123123;
+
 
 int incoming_id;
 int identificators_list[];
@@ -61,7 +61,7 @@ void identification(){
            radio.openWritingPipe(address[1]);//актуально будет поменять трубу для телеметрии
            radio.stopListening();
            delay(queue_delay);
-           radio.write(&identification_telemetry, sizeof(identification_telemetry));
+           radio.write(&id, sizeof(id));
            Serial.println("identification_telemetry was be seng beginner");
            radio.startListening();
            break;
